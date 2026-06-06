@@ -616,6 +616,36 @@ function dibujarTodo() {
     }
 }
 
+// --- CONTROLES TÁCTILES PARA CELULARES ---
+const btnLeft = document.getElementById("btn-left");
+const btnRight = document.getElementById("btn-right");
+const btnJump = document.getElementById("btn-jump");
+const btnAttack = document.getElementById("btn-attack");
+
+if (btnLeft && btnRight && btnJump && btnAttack) {
+    // Mover a la izquierda
+    btnLeft.addEventListener("touchstart", (e) => { e.preventDefault(); teclas.ArrowLeft = true; });
+    btnLeft.addEventListener("touchend", (e) => { e.preventDefault(); teclas.ArrowLeft = false; });
+
+    // Mover a la derecha
+    btnRight.addEventListener("touchstart", (e) => { e.preventDefault(); teclas.ArrowRight = true; });
+    btnRight.addEventListener("touchend", (e) => { e.preventDefault(); teclas.ArrowRight = false; });
+
+    // Saltar
+    btnJump.addEventListener("touchstart", (e) => { 
+        e.preventDefault(); 
+        // Nota: Si tu función de saltar en game.js se llama diferente (ej. saltarJugador), cambia este nombre aquí:
+        ejecutarSalto(); 
+    });
+
+    // Atacar
+    btnAttack.addEventListener("touchstart", (e) => { 
+        e.preventDefault(); 
+        // Nota: Asegúrate de que estas variables coincidan con cómo las llamaste para el ataque
+        if (tieneAtaque && !estaAtacando) ejecutarAtaque(); 
+    });
+}
+
 // --- RUN ---
 cargarNivel(nivelActual);
 bucleJuego();
