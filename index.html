@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="game-container">
-        <h1>Aventura de Plataformas</h1>
-        <div class="hud">Vidas: <span id="lives">3</span></div>
+    <div id="game-container">
+        <div id="scoreboard">Vidas: <span id="lives">3</span></div>
         <canvas id="gameCanvas" width="800" height="400"></canvas>
-        <p class="controls">
-            <strong>Controles:</strong> Flechas Izquierda/Derecha para moverte. <br>
-            Flecha Arriba o Espacio para saltar. Tecla <strong>F</strong> o <strong>X</strong> para atacar (cuando tengas la espada).
-        </p>
+        
+        <!-- Botones táctiles para celulares -->
+        <div id="mobile-controls">
+            <div class="dpadr">
+                <button id="btn-left" class="btn-game">⬅️</button>
+                <button id="btn-right" class="btn-game">➡️</button>
+            </div>
+            <div class="action-buttons">
+                <button id="btn-attack" class="btn-game action-btn">⚔️</button>
+                <button id="btn-jump" class="btn-game action-btn">🦘</button>
+            </div>
+        </div>
     </div>
-
     <script src="game.js"></script>
 </body>
 </html>
